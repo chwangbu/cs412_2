@@ -20,7 +20,7 @@ def order(request):
         'daily_special': daily_special,
         'menu_items': menu_items,
     }
-    return render(request, 'restaurants/order.html', context)
+    return render(request, 'restaurant/order.html', context)
 
 def confirmation(request):
     if request.method == "POST":

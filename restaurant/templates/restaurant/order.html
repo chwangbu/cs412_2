@@ -14,7 +14,7 @@
     {% endfor %}
     <h4>Daily Special: {{ daily_special }}</h4>
     <input type="checkbox" name="{{ daily_special }}" value="{{ daily_special }}">
-    <label>{{ daily_special }} - ${{ menu_items[daily_special] }}</label><br>
+    <label>{{ daily_special }} - ${{ menu_items.daily_special }}</label><br>
     
     <h3>Special Instructions</h3>
     <textarea name="instructions"></textarea><br>

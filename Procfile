@@ -1,0 +1,1 @@
+web: gunicorn cs412_3.wsgi --log-file -

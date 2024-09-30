@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 import random
 import datetime
 
@@ -16,6 +16,10 @@ def main(request):
 
 def order(request):
     daily_special = random.choice(list(menu_items.keys()))
+
+    if request.method == 'POST':
+        return redirect('confirmation')
+
     context = {
         'daily_special': daily_special,
         'menu_items': menu_items,

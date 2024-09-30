@@ -1,0 +1,29 @@
+{% extends 'restaurant/base.html' %}
+
+{% load static %}
+
+{% block content %}
+<h2>Order Form</h2>
+<form method="POST">
+    <!-- csfr token here for POST -->
+    {% csrf_token %}
+    <h3>Menu</h3>
+    {% for item, price in menu_items.items %}
+        <input type="checkbox" name="{{ item }}" value="{{ item }}">
+        <label>{{ item }} - ${{ price }}</label><br>
+    {% endfor %}
+    <h4>Daily Special: {{ daily_special }}</h4>
+    <input type="checkbox" name="{{ daily_special }}" value="{{ daily_special }}">
+    <label>{{ daily_special }} - ${{ menu_items[daily_special] }}</label><br>
+    
+    <h3>Special Instructions</h3>
+    <textarea name="instructions"></textarea><br>
+
+    <h3>Customer Information</h3>
+    <label>Name:</label><input type="text" name="name" required><br>
+    <label>Phone:</label><input type="text" name="phone" required><br>
+    <label>Email:</label><input type="email" name="email" required><br>
+
+    <button type="submit">Submit</button>
+</form>
+{% endblock %}
